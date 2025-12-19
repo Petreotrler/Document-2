@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  
+    <form class="form">
+        <h2 class="form__title"> Контактная форма </h2>
+         <label class="form__label"> 
+           Телефон
+            <input type="tel"
+             name="phone"
+             placeholder="Ваш телефон"
+             required
+             pattern="^\+380\d{9}$"
+
+             />
+         </label>
+
+            <label class = "form__label">
+                Email
+                <input type="email"
+                 name="email"
+                 placeholder="Ваш email"
+                required
+                 />                     
+            </label>
+
+             <label class="form__label">
+                Ссылка
+                <input type="url"
+                 name="link"
+                 placeholder="" 
+                 required
+                 />
+                </label>
+
+            <button class="form__button" type="submit"> Отправить 
+
+            </button>
+                      
+
+    </form>
+</body>
+</html>
