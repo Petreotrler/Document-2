@@ -3,50 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Форма</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,500;1,14..32,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  
-    <form class="form">
-        <h2 class="form__title"> Контактная форма </h2>
-         <label class="form__label"> 
-           Телефон
-            <input type="tel"
-             name="phone"
-             placeholder="Ваш телефон"
-             required
-             pattern="^\+380\d{9}$"
+   <h1>Ваш профиль </h1>
+   <form action="https://www.foo.com/" method="post">
+    <fieldset>
+        <div class="text">
+        <label>
+           Фамилия:
+           <input  id="lastname" type="text" placeholder="Иванов" name="lastname"/>
+       
+       </label>
 
-             />
-         </label>
+       <label>
+           Имя:
+           <input id="firstname" type="text" placeholder="Иван" name="firstname"/>
+       
+       </label>
+       <label>
+           Отчество:
+           <input id="secondname" type="text" placeholder="Иванович" name="secondname"/>
+       
+       </label>
+       </div>
+    </fieldset>
+    <fieldset>
+        <div class="email">
+        <label>
+           E-mail:
+           <input type="email" placeholder="example@example.com" name="email"/>
+       
+       </label>
+       <label>
+            Телефон:
+           <input type="tel" placeholder="+380 123456789" name="phone"/>
+       
+       </label>
+       </div>
+    </fieldset>
+     <div class="specialization">
+    <label for="specialization">Должность:</label>
 
-            <label class = "form__label">
-                Email
-                <input type="email"
-                 name="email"
-                 placeholder="Ваш email"
-                required
-                 />                     
-            </label>
+    <label>
+        <select name="specialization">
+            <option value="Front">Front</option>
+            <option value="Back">Back</option>
+            <option value="BA">BA</option>
+            <option value="QA">QA</option>
+        </select>
+    </label>
+    </div>
 
-             <label class="form__label">
-                Ссылка
-                <input type="url"
-                 name="link"
-                 placeholder="" 
-                 required
-                 />
-                </label>
+        <fieldset>
+            <legend>Пол</legend>
+            <input type="radio"name="gender" value="male" checked>
+            <label>
+               Мужской
+           </label>
+           <input type="radio"name="gender" value="female">
+           <label>
+               Женский
+           </label>
+        </fieldset>
+        <div class="description">
+        <label>
+         О себе:
+         <textarea name="description" placeholder="Расскажите о себе" rows="5"></textarea>
+        </label>
+        <label for="">
+            Получать новости на почту
+            <input type="checkbox" name="sendemail"  checked/>
+        </label>
+        </div>
+        <button>
+            Сохранить
+        </button>
 
-            <button class="form__button" type="submit"> Отправить 
-
-            </button>
-                      
-
-    </form>
+    
+</form>
 </body>
 </html>
