@@ -1,0 +1,66 @@
+body{
+    font-family: 'Inter', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 40em;
+    width: 88%;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    margin-bottom: 5px;
+}
+
+.text input{
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+fieldset{
+    margin-bottom: 20px;
+}
+
+.email{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.email input{
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+
+.description{
+    margin-bottom: 10px;
+}
+
+.description textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 1em;
+    resize: vertical;
+}
+
+.specialization{
+    margin-bottom: 20px;
+}
+
+.specialization select{
+    width: 14%;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 1em;
+}
