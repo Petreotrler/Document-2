@@ -13,77 +13,70 @@
    <h1>Ваш профиль </h1>
    <form action="https://www.foo.com/" method="post">
     <fieldset>
+        <legend>Личные данные</legend>
         <div class="text">
-        <label>
-           Фамилия:
-           <input  id="lastname" type="text" placeholder="Иванов" name="lastname"/>
-       
-       </label>
 
-       <label>
-           Имя:
+        <label for="lastname"> Фамилия: </label>
+
+           <input  id="lastname" type="text" placeholder="Иванов" name="lastname"/>
+
+       <label for="firstname"> Имя: </label>
+
            <input id="firstname" type="text" placeholder="Иван" name="firstname"/>
        
-       </label>
-       <label>
-           Отчество:
+       
+       <label for="secondname"> Отчество: </label>
+
            <input id="secondname" type="text" placeholder="Иванович" name="secondname"/>
        
-       </label>
        </div>
     </fieldset>
     <fieldset>
         <div class="email">
-        <label>
-           E-mail:
-           <input type="email" placeholder="example@example.com" name="email"/>
+
+        <label for="email"> email: </label>
+
+           <input type="email" placeholder="example@example.com" name="email" required/>
        
-       </label>
-       <label>
-            Телефон:
-           <input type="tel" placeholder="+380 123456789" name="phone"/>
-       
-       </label>
+       <label for="phone"> Телефон: </label>
+           <input type="tel" placeholder="+380 123456789" name="phone" pattern="[\d\s\+\-\(\)]{9,20}" required/>
+        
        </div>
     </fieldset>
      <div class="specialization">
+
     <label for="specialization">Должность:</label>
 
-    <label>
-        <select name="specialization">
+        <select name="specialization" required>
+            <option disabled value="" selected>Выберите должность</option>
             <option value="Front">Front</option>
             <option value="Back">Back</option>
             <option value="BA">BA</option>
             <option value="QA">QA</option>
         </select>
-    </label>
     </div>
 
         <fieldset>
-            <legend>Пол</legend>
-            <input type="radio"name="gender" value="male" checked>
-            <label>
-               Мужской
-           </label>
-           <input type="radio"name="gender" value="female">
-           <label>
-               Женский
-           </label>
+         <legend>Пол</legend>
+
+          <input id="male" type="radio" name="gender" value="male">
+        <label for="male">Мужской</label>
+
+         <input id="female" type="radio" name="gender" value="female">
+          <label for="female">Женский</label>
         </fieldset>
         <div class="description">
         <label>
          О себе:
          <textarea name="description" placeholder="Расскажите о себе" rows="5"></textarea>
         </label>
-        <label for="">
+        <label for="checkbox">
             Получать новости на почту
-            <input type="checkbox" name="sendemail"  checked/>
+            <input type="checkbox" name="sendemail" checked/>
         </label>
         </div>
-        <button>
-            Сохранить
-        </button>
-
+    
+        <button type="submit">Сохранить</button>
     
 </form>
 </body>
