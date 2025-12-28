@@ -36,10 +36,10 @@
 
         <label for="email"> email: </label>
 
-           <input type="email" placeholder="example@example.com" name="email" required/>
+           <input id="email" type="email" placeholder="example@example.com" name="email" required/>
        
        <label for="phone"> Телефон: </label>
-           <input type="tel" placeholder="+380 123456789" name="phone" pattern="[\d\s\+\-\(\)]{9,20}" required/>
+           <input id="phone" type="tel" placeholder="+380 123456789" name="phone" pattern="[\d\s\+\-\(\)]{9,20}" required/>
         
        </div>
     </fieldset>
@@ -47,7 +47,7 @@
 
     <label for="specialization">Должность:</label>
 
-        <select name="specialization" required>
+        <select id="specialization" name="specialization" required>
             <option disabled value="" selected>Выберите должность</option>
             <option value="Front">Front</option>
             <option value="Back">Back</option>
@@ -72,7 +72,7 @@
         </label>
         <label for="checkbox">
             Получать новости на почту
-            <input type="checkbox" name="sendemail" checked/>
+            <input id="checkbox" type="checkbox" name="sendemail" checked/>
         </label>
         </div>
     
