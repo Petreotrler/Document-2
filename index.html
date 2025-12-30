@@ -3,81 +3,322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма</title>
+    <title>Профиль разработчика</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,500;1,14..32,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;1,14..32,400&family=Inter+Tight:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-   <h1>Ваш профиль </h1>
-   <form action="https://www.foo.com/" method="post">
-    <fieldset>
-        <legend>Личные данные</legend>
-        <div class="text">
+    <div class="container">
+        <header class="form-header">
+            <h1><i class="fas fa-user-circle"></i> Профиль разработчика</h1>
+            <p class="subtitle">Заполните информацию о себе для добавления в базу талантов</p>
+        </header>
 
-        <label for="lastname"> Фамилия: </label>
+        <form id="profile-form" action="https://formsubmit.co/ваша-почта@gmail.com" method="POST">
+            
+            <input type="hidden" name="_subject" value="Новая заявка: Профиль разработчика">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_replyto" value="_email">
+            <input type="hidden" name="_next" value="https://ваш-сайт.ru/success.html">
+            
+          
+            <div class="form-sections">
+                
+             
+                <section class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-id-card"></i>
+                        <h2>Личные данные</h2>
+                    </div>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="lastname">
+                                <i class="fas fa-user"></i> Фамилия *
+                            </label>
+                            <input id="lastname" type="text" placeholder="Иванов" name="lastname" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="firstname">
+                                <i class="fas fa-user"></i> Имя *
+                            </label>
+                            <input id="firstname" type="text" placeholder="Иван" name="firstname" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="secondname">
+                                <i class="fas fa-user"></i> Отчество
+                            </label>
+                            <input id="secondname" type="text" placeholder="Иванович" name="secondname">
+                        </div>
+                        <div class="input-group">
+                            <label for="birthdate">
+                                <i class="fas fa-birthday-cake"></i> Дата рождения
+                            </label>
+                            <input id="birthdate" type="date" name="birthdate">
+                        </div>
+                    </div>
+                </section>
 
-           <input  id="lastname" type="text" placeholder="Иванов" name="lastname"/>
+              
+                <section class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-address-book"></i>
+                        <h2>Контактная информация</h2>
+                    </div>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email *
+                            </label>
+                            <input id="email" type="email" placeholder="example@example.com" name="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i> Телефон *
+                            </label>
+                            <input id="phone" type="tel" placeholder="+380 123 456 789" 
+                                   name="phone" pattern="[\d\s\+\-\(\)]{9,20}" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="telegram">
+                                <i class="fab fa-telegram"></i> Telegram
+                            </label>
+                            <input id="telegram" type="text" placeholder="@username" name="telegram">
+                        </div>
+                        <div class="input-group">
+                            <label for="linkedin">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </label>
+                            <input id="linkedin" type="url" placeholder="https://linkedin.com/in/username" name="linkedin">
+                        </div>
+                    </div>
+                </section>
 
-       <label for="firstname"> Имя: </label>
+              
+                <section class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h2>Профессиональная информация</h2>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="specialization">
+                            <i class="fas fa-code"></i> Направление разработки *
+                        </label>
+                        <select id="specialization" name="specialization" required>
+                            <option disabled value="" selected>Выберите направление</option>
+                            <option value="Frontend">Frontend Developer</option>
+                            <option value="Backend">Backend Developer</option>
+                            <option value="Fullstack">Fullstack Developer</option>
+                            <option value="Mobile">Mobile Developer</option>
+                            <option value="DevOps">DevOps Engineer</option>
+                            <option value="QA">QA Engineer</option>
+                            <option value="BA">Business Analyst</option>
+                            <option value="PM">Project Manager</option>
+                            <option value="Design">UI/UX Designer</option>
+                            <option value="Data">Data Scientist</option>
+                        </select>
+                    </div>
 
-           <input id="firstname" type="text" placeholder="Иван" name="firstname"/>
-       
-       
-       <label for="secondname"> Отчество: </label>
+                    <div class="input-group">
+                        <label for="experience">
+                            <i class="fas fa-chart-line"></i> Опыт работы (лет)
+                        </label>
+                        <select id="experience" name="experience">
+                            <option value="" selected>Не указано</option>
+                            <option value="0-1">Меньше 1 года</option>
+                            <option value="1-3">1-3 года</option>
+                            <option value="3-5">3-5 лет</option>
+                            <option value="5+">Более 5 лет</option>
+                        </select>
+                    </div>
 
-           <input id="secondname" type="text" placeholder="Иванович" name="secondname"/>
-       
-       </div>
-    </fieldset>
-    <fieldset>
-        <div class="email">
+                    <div class="input-group">
+                        <label for="technologies">
+                            <i class="fas fa-cogs"></i> Ключевые технологии
+                        </label>
+                        <input id="technologies" type="text" 
+                               placeholder="JavaScript, React, Node.js, Python..." 
+                               name="technologies">
+                    </div>
 
-        <label for="email"> email: </label>
+                    <div class="input-group">
+                        <label for="level">
+                            <i class="fas fa-signal"></i> Уровень
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="level" value="Junior">
+                                <span class="radio-custom"></span>
+                                Junior
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="level" value="Middle">
+                                <span class="radio-custom"></span>
+                                Middle
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="level" value="Senior">
+                                <span class="radio-custom"></span>
+                                Senior
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="level" value="Lead">
+                                <span class="radio-custom"></span>
+                                Lead
+                            </label>
+                        </div>
+                    </div>
+                </section>
 
-           <input id="email" type="email" placeholder="example@example.com" name="email" required/>
-       
-       <label for="phone"> Телефон: </label>
-           <input id="phone" type="tel" placeholder="+380 123456789" name="phone" pattern="[\d\s\+\-\(\)]{9,20}" required/>
+             
+                <section class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-info-circle"></i>
+                        <h2>Дополнительная информация</h2>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>
+                            <i class="fas fa-venus-mars"></i> Пол
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="male" id="male">
+                                <span class="radio-custom"></span>
+                                Мужской
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="female" id="female">
+                                <span class="radio-custom"></span>
+                                Женский
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="other" id="other">
+                                <span class="radio-custom"></span>
+                                Другое
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="portfolio">
+                            <i class="fas fa-link"></i> Портфолио / GitHub
+                        </label>
+                        <input id="portfolio" type="url" 
+                               placeholder="https://github.com/username или ссылка на портфолио" 
+                               name="portfolio">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="salary">
+                            <i class="fas fa-money-bill-wave"></i> Ожидания по зарплате ($)
+                        </label>
+                        <input id="salary" type="number" 
+                               placeholder="2000" 
+                               name="salary" min="0" step="100">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="description">
+                            <i class="fas fa-edit"></i> О себе *
+                        </label>
+                        <textarea id="description" name="description" 
+                                  placeholder="Расскажите о своих навыках, проектах и профессиональных целях..." 
+                                  rows="6" required></textarea>
+                        <div class="char-counter">
+                            <span id="char-count">0</span>/1000 символов
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="attachment">
+                            <i class="fas fa-paperclip"></i> Прикрепить резюме (PDF, DOC)
+                        </label>
+                        <input id="attachment" type="file" 
+                               name="attachment" 
+                               accept=".pdf,.doc,.docx,.txt">
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="sendemail" id="checkbox" checked>
+                            <span class="checkbox-custom"></span>
+                            Получать новости и вакансии на почту
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="privacy" id="privacy" required>
+                            <span class="checkbox-custom"></span>
+                            Я согласен на обработку персональных данных *
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="available" id="available">
+                            <span class="checkbox-custom"></span>
+                            Ищу новые возможности (открыт к предложениям)
+                        </label>
+                    </div>
+                </section>
+            </div>
+
+           
+            <div class="form-footer">
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Отправить профиль
+                </button>
+                <button type="reset" class="btn-reset">
+                    <i class="fas fa-redo"></i> Очистить форму
+                </button>
+                <div class="form-hint">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Поля, отмеченные *, обязательны для заполнения</span>
+                </div>
+            </div>
+        </form>
+
         
-       </div>
-    </fieldset>
-     <div class="specialization">
-
-    <label for="specialization">Должность:</label>
-
-        <select id="specialization" name="specialization" required>
-            <option disabled value="" selected>Выберите должность</option>
-            <option value="Front">Front</option>
-            <option value="Back">Back</option>
-            <option value="BA">BA</option>
-            <option value="QA">QA</option>
-        </select>
+        <div class="service-info">
+            <p><i class="fas fa-shield-alt"></i> Данные отправляются через защищенный сервис FormSubmit</p>
+        </div>
     </div>
 
-        <fieldset>
-         <legend>Пол</legend>
+   
+    <script>
+     
+        const textarea = document.getElementById('description');
+        const charCount = document.getElementById('char-count');
+        
+        textarea.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+        });
 
-          <input id="male" type="radio" name="gender" value="male">
-        <label for="male">Мужской</label>
+        
+        document.getElementById('profile-form').addEventListener('submit', function(e) {
+            const requiredFields = this.querySelectorAll('[required]');
+            let valid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#ff4757';
+                    valid = false;
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (!valid) {
+                e.preventDefault();
+                alert('Пожалуйста, заполните все обязательные поля (отмечены *)');
+            }
+        });
 
-         <input id="female" type="radio" name="gender" value="female">
-          <label for="female">Женский</label>
-        </fieldset>
-        <div class="description">
-        <label>
-         О себе:
-         <textarea name="description" placeholder="Расскажите о себе" rows="5"></textarea>
-        </label>
-        <label for="checkbox">
-            Получать новости на почту
-            <input id="checkbox" type="checkbox" name="sendemail" checked/>
-        </label>
-        </div>
-    
-        <button type="submit">Сохранить</button>
-    
-</form>
+        document.getElementById('attachment').addEventListener('change', function(e) {
+            const fileName = this.files[0] ? this.files[0].name : 'Файл не выбран';
+            const label = this.previousElementSibling;
+            label.innerHTML = `<i class="fas fa-paperclip"></i> ${fileName}`;
+        });
+    </script>
 </body>
 </html>
