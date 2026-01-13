@@ -17,7 +17,7 @@
             <p class="subtitle">Заполните информацию о себе для добавления в базу талантов</p>
         </header>
 
-        <form id="profile-form" action="https://formsubmit.co/ваша-почта@gmail.com" method="POST">
+        <form id="profile-form" action="https://formsubmit.co/ваша-почта@gmail.com" method="POST" novalidate data-js-form >
             
             <input type="hidden" name="_subject" value="Новая заявка: Профиль разработчика">
             <input type="hidden" name="_template" value="table">
@@ -39,19 +39,22 @@
                             <label for="lastname">
                                 <i class="fas fa-user"></i> Фамилия *
                             </label>
-                            <input id="lastname" type="text" placeholder="Иванов" name="lastname" required>
+                            <input id="lastname" type="text" placeholder="Иванов" name="lastname" aria-errormessage="lastname-errors" required>
+                            <span class="lastname__errors" id="lastname-errors" data-js-form-lastname-errors></span>
                         </div>
                         <div class="input-group">
                             <label for="firstname">
                                 <i class="fas fa-user"></i> Имя *
                             </label>
-                            <input id="firstname" type="text" placeholder="Иван" name="firstname" required>
+                            <input id="firstname" type="text" placeholder="Иван" name="firstname" aria-errormessage="firstname-errors" required>
+                            <span class="firstname__errors" id="firstname-errors" data-js-form-firstname-errors></span>
                         </div>
                         <div class="input-group">
                             <label for="secondname">
                                 <i class="fas fa-user"></i> Отчество
                             </label>
                             <input id="secondname" type="text" placeholder="Иванович" name="secondname">
+                            
                         </div>
                         <div class="input-group">
                             <label for="birthdate">
@@ -73,14 +76,15 @@
                             <label for="email">
                                 <i class="fas fa-envelope"></i> Email *
                             </label>
-                            <input id="email" type="email" placeholder="example@example.com" name="email" required>
+                            <input id="email" type="email" placeholder="example@example.com" name="email" aria-errormessage="email-errors" required>
+                            <span class="email__errors" id="email-errors" data-js-form-email-errors></span>
                         </div>
                         <div class="input-group">
                             <label for="phone">
                                 <i class="fas fa-phone"></i> Телефон *
                             </label>
-                            <input id="phone" type="tel" placeholder="+380 123 456 789" 
-                                   name="phone" pattern="[\d\s\+\-\(\)]{9,20}" required>
+                            <input id="phone" type="tel" placeholder="+380 123 456 789" minlength="3" maxlength="12" name="phone" pattern="[\d\s\+\-\(\)]{9,20}" aria-errormessage="phone-errors" required>
+                            <span class="phone__errors" id="phone-errors" data-js-form-phone-errors></span>
                         </div>
                         <div class="input-group">
                             <label for="telegram">
@@ -108,7 +112,7 @@
                         <label for="specialization">
                             <i class="fas fa-code"></i> Направление разработки *
                         </label>
-                        <select id="specialization" name="specialization" required>
+                        <select id="specialization" name="specialization" aria-errormessage="specialization-errors" required>
                             <option disabled value="" selected>Выберите направление</option>
                             <option value="Frontend">Frontend Developer</option>
                             <option value="Backend">Backend Developer</option>
@@ -121,6 +125,7 @@
                             <option value="Design">UI/UX Designer</option>
                             <option value="Data">Data Scientist</option>
                         </select>
+                        <span class="specialization__errors" id="specialization-errors" data-js-form-specialization-errors></span>
                     </div>
 
                     <div class="input-group">
@@ -140,9 +145,7 @@
                         <label for="technologies">
                             <i class="fas fa-cogs"></i> Ключевые технологии
                         </label>
-                        <input id="technologies" type="text" 
-                               placeholder="JavaScript, React, Node.js, Python..." 
-                               name="technologies">
+                        <input id="technologies" type="text" placeholder="JavaScript, React, Node.js, Python..." name="technologies">
                     </div>
 
                     <div class="input-group">
@@ -217,20 +220,17 @@
                         <label for="salary">
                             <i class="fas fa-money-bill-wave"></i> Ожидания по зарплате ($)
                         </label>
-                        <input id="salary" type="number" 
-                               placeholder="2000" 
-                               name="salary" min="0" step="100">
+                        <input id="salary" type="number" placeholder="2000" name="salary" min="0" step="100">
                     </div>
 
                     <div class="input-group">
                         <label for="description">
                             <i class="fas fa-edit"></i> О себе *
                         </label>
-                        <textarea id="description" name="description" 
-                                  placeholder="Расскажите о своих навыках, проектах и профессиональных целях..." 
-                                  rows="6" required></textarea>
+                        <textarea id="description" name="description"  placeholder="Расскажите о своих навыках, проектах и профессиональных целях..." rows="6" aria-errormessage="description-errors" required></textarea>
                         <div class="char-counter">
                             <span id="char-count">0</span>/1000 символов
+                            <span class="description__errors" id="description-errors" data-js-form-description-errors></span>
                         </div>
                     </div>
 
@@ -238,9 +238,7 @@
                         <label for="attachment">
                             <i class="fas fa-paperclip"></i> Прикрепить резюме (PDF, DOC)
                         </label>
-                        <input id="attachment" type="file" 
-                               name="attachment" 
-                               accept=".pdf,.doc,.docx,.txt">
+                        <input id="attachment" type="file" name="attachment" accept=".pdf,.doc,.docx,.txt">
                     </div>
 
                     <div class="checkbox-group">
@@ -249,11 +247,15 @@
                             <span class="checkbox-custom"></span>
                             Получать новости и вакансии на почту
                         </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="privacy" id="privacy" required>
+                        
+                            
+                        <label for="privacy" class="checkbox-label">
+                            <input type="checkbox" name="privacy" id="privacy" aria-errormessage="checkbox-errors"  required>
                             <span class="checkbox-custom"></span>
                             Я согласен на обработку персональных данных *
                         </label>
+                        <span class="checkbox__errors" id="checkbox-errors" data-js-form-checkbox-label-errors aria-live="polite"></span>
+                
                         <label class="checkbox-label">
                             <input type="checkbox" name="available" id="available">
                             <span class="checkbox-custom"></span>
@@ -285,7 +287,7 @@
     </div>
 
    
-    <script>
+    <script src="/validator/script.js">
      
         const textarea = document.getElementById('description');
         const charCount = document.getElementById('char-count');
@@ -300,13 +302,16 @@
             let valid = true;
             
             requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    field.style.borderColor = '#ff4757';
-                    valid = false;
-                } else {
-                    field.style.borderColor = '#ddd';
-                }
-            });
+    if (field.type === 'checkbox') {
+        if (!field.checked) {
+            valid = false;
+        }
+    } else {
+        if (!field.value.trim()) {
+            valid = false;
+        }
+    }
+ });
             
             if (!valid) {
                 e.preventDefault();
