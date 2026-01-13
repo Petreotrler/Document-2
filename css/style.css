@@ -77,10 +77,6 @@ body {
     transition: var(--transition);
 }
 
-.form-section:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--box-shadow);
-}
 
 .section-header {
     display: flex;
